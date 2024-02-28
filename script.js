@@ -13,4 +13,4 @@ const getData = async function () {
 getData();
 console.log('FIRST');
 
-// comment
+// comment2
