@@ -28,6 +28,7 @@ async function displayData() {
 
          const imageCell = document.createElement("td")
          const nameCell = document.createElement("td")
+         const currentPriceCell = document.createElement("td")
 
          nameCell.textContent = el.name;
 
