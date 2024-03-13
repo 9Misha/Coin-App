@@ -24,13 +24,13 @@ async function displayData() {
       
       for (const el of coinData) {
          const tableBody = document.getElementById('table-body');
+
          // Creating tr section
          const row = document.createElement("tr");
 
          // Creating cells in the table
          const imageCell = document.createElement('img');
-         const nameCell = document.createElement('a');
-         const nameCellText = document.createTextNode(el.name);
+         const nameCell = document.createElement('td');
          const currentPriceCell = document.createElement('td');
          const high24Cell = document.createElement('td');
          const pers24hoursCell = document.createElement('td');
@@ -45,20 +45,25 @@ async function displayData() {
          imageCell.style.height = '50px';
          imageCell.style.width = '45px';
 
+         const coinLink = document.createElement('a');
+         coinLink.href = `https://www.coingecko.com/en/coins/${el.id}`;
 
-         // Creating a link 
-         nameCell.appendChild(nameCellText);
-         nameCell.title = `${el.name}`;
-         nameCell.href = 'https://stackoverflow.com/questions/4772774/how-do-i-create-a-link-using-javascript'
+         nameCell.addEventListener('click', function () {
+            window.open(coinLink.href, '_blank');
+         })
+         nameCell.style.textDecoration = 'underline';
+         nameCell.style.cursor = 'pointer';
+         nameCell.style.backgroundColor = 'rgb(14, 174, 218)';
 
          
+         nameCell.textContent = el.name;
          currentPriceCell.textContent = (el.current_price).toFixed(5);
          high24Cell.textContent = Number(el.high_24h).toFixed(6);
-         pers24hoursCell.textContent = Number(el.price_change_percentage_24h_in_currency).toFixed(6);
-         pers7dayCell.textContent = Number(el.price_change_percentage_7d_in_currency).toFixed(6);
-         pers30dayCell.textContent = Number(el.price_change_percentage_30d_in_currency).toFixed(6);
-         pers200dayCell.textContent = Number(el.price_change_percentage_200d_in_currency).toFixed(6);
-         pers1yearCell.textContent = Number(el.price_change_percentage_1y_in_currency).toFixed(6);
+         pers24hoursCell.textContent = Number(el.price_change_percentage_24h_in_currency).toFixed(2);
+         pers7dayCell.textContent = Number(el.price_change_percentage_7d_in_currency).toFixed(2);
+         pers30dayCell.textContent = Number(el.price_change_percentage_30d_in_currency).toFixed(2);
+         pers200dayCell.textContent = Number(el.price_change_percentage_200d_in_currency).toFixed(2);
+         pers1yearCell.textContent = Number(el.price_change_percentage_1y_in_currency).toFixed(2);
 
 
 
@@ -79,6 +84,7 @@ async function displayData() {
          tableBody.appendChild(row);
 
          console.log(el);
+
          
 
          // let table = ''
@@ -110,4 +116,5 @@ async function displayData() {
 }
 
 displayData();
+
 

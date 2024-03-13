@@ -1,3 +1,7 @@
+.main {
+   text-align: center;
+}
+
 .table__content {
    margin: 25px;
    font-size: 18px;
@@ -9,6 +13,7 @@
    color: aliceblue;
    text-align: center;
    font-weight: bold;
+
 }
 
 .table__content th {}
@@ -31,8 +36,8 @@
 }
 
 .red{
-   background-color: red;
+   color: red;
 }
 .green{
-   background-color: green;
+   color: green;
 }
