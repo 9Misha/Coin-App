@@ -45,6 +45,7 @@ async function displayData() {
          imageCell.style.height = '50px';
          imageCell.style.width = '45px';
 
+         // Coins and links
          const coinLink = document.createElement('a');
          coinLink.href = `https://www.coingecko.com/en/coins/${el.id}`;
 
@@ -54,19 +55,36 @@ async function displayData() {
          nameCell.style.textDecoration = 'underline';
          nameCell.style.cursor = 'pointer';
          nameCell.style.backgroundColor = 'rgb(14, 174, 218)';
-
-         
          nameCell.textContent = el.name;
+
+         // Other table cells
          currentPriceCell.textContent = (el.current_price).toFixed(5);
+         el.current_price > el.high_24h ? currentPriceCell.classList.add('green') : currentPriceCell.classList.add('red');
+
          high24Cell.textContent = Number(el.high_24h).toFixed(6);
+
          pers24hoursCell.textContent = Number(el.price_change_percentage_24h_in_currency).toFixed(2);
+         Number(el.price_change_percentage_24h_in_currency) > 0 ? pers24hoursCell.classList.add('green') : pers24hoursCell.classList.add('red');
+         // if (Number(el.price_change_percentage_24h_in_currency) > 0)
+         // {
+         // pers24hoursCell.classList.add("green");
+         // } else {
+         // pers24hoursCell.classList.add("red");
+         // };
+
          pers7dayCell.textContent = Number(el.price_change_percentage_7d_in_currency).toFixed(2);
+         Number(el.price_change_percentage_7d_in_currency) > 0 ? pers7dayCell.classList.add('green') : pers7dayCell.classList.add('red');
+
+
          pers30dayCell.textContent = Number(el.price_change_percentage_30d_in_currency).toFixed(2);
+         Number(el.price_change_percentage_30d_in_currency) > 0 ? pers30dayCell.classList.add('green') : pers30dayCell.classList.add('red');
+
          pers200dayCell.textContent = Number(el.price_change_percentage_200d_in_currency).toFixed(2);
+         Number(el.price_change_percentage_200d_in_currency) > 0 ? pers200dayCell.classList.add('green') : pers200dayCell.classList.add('red');
+
+
          pers1yearCell.textContent = Number(el.price_change_percentage_1y_in_currency).toFixed(2);
-
-
-
+         Number(el.price_change_percentage_1y_in_currency) > 0 ?  pers1yearCell.classList.add('green') : pers1yearCell.classList.add('red');
 
          // Adding another one row in the end of the table
          row.appendChild(imageCell);
