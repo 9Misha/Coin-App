@@ -1,6 +1,6 @@
 "use strict";
 
-const url = ("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=pyrin%2Cclore-ai%2Cnexellia%2Calephium%2Chypra%2Cradiant%2Cergo%2Ckarlsen%2Cravencoin%2Cabelian%2Cdynex%2Cai-power-grid%2Ckiirocoin&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h%2C7d%2C30d%2C200d%2C1y&locale=en");
+// const url = ("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=pyrin%2Cclore-ai%2Cnexellia%2Calephium%2Chypra%2Cradiant%2Cergo%2Ckarlsen%2Cravencoin%2Cabelian%2Cdynex%2Cai-power-grid%2Ckiirocoin&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h%2C7d%2C30d%2C200d%2C1y&locale=en");
 
 // https://jsonplaceholder.typicode.com/todos
 
@@ -136,3 +136,30 @@ async function displayData() {
 displayData();
 
 
+// Implementation of theme changing
+
+document.querySelector('.theme-toggle').addEventListener('click', function (event) {
+   event.preventDefault();
+   if (localStorage.getItem('theme') === 'dark') {
+      localStorage.removeItem('theme')
+   } else {
+      localStorage.setItem('theme', 'dark')
+   }
+   addDarkClass();
+});
+
+const addDarkClass = function () {
+try {
+   if (localStorage.getItem('theme') === 'dark') {
+      document.querySelector('html').classList.add('dark');
+      document.querySelector('.theme-toggle span').textContent = 'dark_mode';
+   } else {
+      document.querySelector('html').classList.remove('dark');
+      document.querySelector('theme-toggle span').textContent = 'light_mode';
+   }
+} catch (error) {
+   console.error(error)
+};
+};
+
+addDarkClass();

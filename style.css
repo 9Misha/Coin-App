@@ -1,11 +1,56 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: inherit;
+ }
+
+.container {
+   max-width: 1200px;
+   height: 30px;
+   margin: 0 auto;
+   padding: 0px 70px;
+ }
+
+@media (max-width: 1200px) {
+   .container{
+      max-width: 970px;
+   }
+}
+@media (max-width: 992px){
+   .container{
+      max-width: 750px;
+      padding: 0px 20px;
+   }
+}
+@media (max-width: 767px) {
+   .container{
+      max-width: none;
+      padding: 0px;
+   }
+}
+
 .main {
    text-align: center;
+}
+
+.theme-toggle {
+   text-decoration: none;
+   color: black;
 }
 
 .table__content {
    margin: 25px;
    font-size: 18px;
-   min-width: 400px;
+}
+@media (max-width: 992px) {
+   .table__content{
+      margin: 10px;
+   }
+}
+@media (max-width: 767px) {
+   .table__content{
+      margin: 0px;
+   }
 }
 
 .table__content thead tr {
@@ -16,20 +61,28 @@
 
 }
 
-.table__content th {}
+.table__content th {
+   padding: 10px;
+}
+@media (max-width: 1200px) {
+   .table__content th{
+      padding: 5px;
+   }
+}
+@media (max-width: 992px) {
+   .table__content th{
+      padding: 0px;
+   }
+}
+@media (max-width: 767px) {
+   .table__content th{
+      padding: 0px;
+   }
+}
 
 .table__content td {
    padding: 12px 15px;
 }
-
-/* .table__content th, .table__content td {
-   border-bottom: 1px solid black;
-} */
-
-
-/* .table__content tbody tr:nth-of-type(even) {
-   background-color: #f3f3f3;
-} */
 
 .active__coin {
    background-color: rgb(14, 136, 230);
@@ -40,4 +93,18 @@
 }
 .green{
    background-color: rgb(60, 243, 60);
+}
+
+/* Додавання класу dark */
+
+html.dark, .dark body {
+   background: black;
+}
+
+.dark .container {
+   background: #3c3c3c;
+}
+
+.dark .cources a {
+   color: white;
 }
